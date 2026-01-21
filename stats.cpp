@@ -5,13 +5,12 @@
 
 std::string get_book_text(std::string book)
 {
-    std::ifstream MyFile("books/frankenstein.txt");
+    std::ifstream MyFile(book);
     std::ostringstream text;
 
     if (!MyFile.is_open())
     {
-        std::cout << "Could not open file to read" << std::endl;
-        return "";
+        throw std::invalid_argument("Could not open file to read");
     }
 
     text << MyFile.rdbuf();

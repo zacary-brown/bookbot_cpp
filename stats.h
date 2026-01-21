@@ -3,7 +3,7 @@
 
 /// @brief Returns a given text file as a string
 /// @param book Text file to read
-/// @return Text file as string
+/// @return Text file as string or invalid_argument if book not found
 std::string get_book_text(std::string book);
 
 /// @brief Counts how many words are in a given string
