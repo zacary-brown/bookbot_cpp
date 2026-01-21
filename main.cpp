@@ -18,11 +18,27 @@ std::string get_book_text(std::string book)
     return text.str();
 }
 
+int count_words(std::string& text)
+{
+    std::stringstream buffer(text);
+    std::string word;
+    int count = 0;
+
+    while (buffer >> word)
+    {
+        ++count;
+    }
+
+    return count;
+}
+
 int main()
 {
     std::string my_text = get_book_text("books/frankenstein.txt");
 
-    std::cout << my_text << std::endl;
+    int word_count = count_words(my_text);
+
+    std::cout << "Found " << word_count << " total words" << std::endl;
 
     return 0;
 }
