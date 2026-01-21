@@ -10,7 +10,18 @@ int main()
 
     std::unordered_map<char, int> occurences = letters_to_dict(my_text);
 
-    for (const auto occurence : occurences)
+    std::vector<std::pair<char,int>> sorted_occurences;
+
+    for (const auto& occurence : occurences)
+    {
+        sorted_occurences.push_back(occurence);
+    }
+
+    std::sort(sorted_occurences.begin(), sorted_occurences.end(), [](const std::pair<char,int>& a, const std::pair<char,int>& b){
+        return a.second > b.second;
+    });
+
+    for (const auto& occurence : sorted_occurences)
     {
         std::cout << occurence.first << " : " << occurence.second << std::endl;
     }
