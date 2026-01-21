@@ -15,3 +15,7 @@ int count_words(std::string& text);
 /// @param text String to count letters from
 /// @return Unordered Map of characters as the index and their occurences as the value
 std::unordered_map<char, int> letters_to_dict(std::string& text);
+
+/// @brief Prints letter occurences to console given text to scan for letter occurences
+/// @param text String to scan for letter occurences
+void print_occurences_sorted(std::string& text);

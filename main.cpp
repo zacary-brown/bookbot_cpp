@@ -2,29 +2,20 @@
 
 int main()
 {
-    std::string my_text = get_book_text("books/frankenstein.txt");
+    std::string book_name = "books/frankenstein.txt";
 
-    int word_count = count_words(my_text);
+    std::cout << "============ BOOKBOT ============" << std::endl;
+    std::cout << "Analyzing book found at " << book_name << "..." << std::endl;
 
-    std::cout << "Found " << word_count << " total words" << std::endl;
+    std::string my_text = get_book_text(book_name);
 
-    std::unordered_map<char, int> occurences = letters_to_dict(my_text);
+    std::cout << "----------- Word Count ----------" << std::endl;
 
-    std::vector<std::pair<char,int>> sorted_occurences;
+    std::cout << "Found " << count_words(my_text) << " total words" << std::endl;
 
-    for (const auto& occurence : occurences)
-    {
-        sorted_occurences.push_back(occurence);
-    }
+    std::cout << "--------- Character Count -------" << std::endl;
 
-    std::sort(sorted_occurences.begin(), sorted_occurences.end(), [](const std::pair<char,int>& a, const std::pair<char,int>& b){
-        return a.second > b.second;
-    });
-
-    for (const auto& occurence : sorted_occurences)
-    {
-        std::cout << occurence.first << " : " << occurence.second << std::endl;
-    }
+    print_occurences_sorted(my_text);
 
     return 0;
 }
